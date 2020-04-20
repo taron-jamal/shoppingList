@@ -1,0 +1,90 @@
+I. DOM Selectors
+----------------
+
+getElementsByTagName
+  ex. returns a collection of all elements in the document with the specified tag name.
+  ex. document.getElementsByTagName("h1");
+
+getElementsByClassName
+  ex. returns a collection of all elements in the document with the specified class name.
+  ex. document.getElementsByClassName("second");
+
+getElementById
+  ex. returns the element that has the ID attribute with the specified value.
+  ex. getElementById("first");
+
+
+
+querySelector
+  ex. returns the first element that matches a specified CSS selector(s) in the document.
+  ex. to return all matches, use querySelectorAll() method instead.
+
+querySelectorAll()
+  ex. returns all elements in the document that matches a specified CSS selector, as a static NodeList object.
+  ex. NodeList object represents a collection of nodes. The nodes can be accessed by index numbers. The index starts at 0.
+  ex. document.querySelectorAll("li");
+
+
+
+getAttribute
+  ex. returns the value of the attribute with the specified name, of an element.
+  ex. document.querySelector("li").getAttribute("random");
+
+setAttribute
+  ex. adds the specified attribute to an element, and gives it a specified value.
+  ex. document.querySelector("li").setAttribute("random", "8");
+
+
+
+II. Changing Styles
+-------------------
+
+style.{property} //ok
+  ex. returns a CSSStyleDeclaration object, which represents an element's style attribute. It is used to get or set a specific style of an element using different CSS properties.
+  ex. document.querySelector("h1").style.background = "yellow";
+
+className //best
+  ex. sets or returns the class name of an element (the value of an element's class attribute).
+  ex. h1.className = "Cool story, bro.";
+
+classList //best
+  ex. returns the class name(s) of an element, as a DOMTokenList object.
+  ex. document.querySelector("li").classList;
+
+
+classList.add
+  ex. adds one or more class names to an element.
+  ex. document.querySelector("li").classList.add("Cool story, bro.");
+
+
+classList.remove
+  ex. removes one or more class names from an element.
+  ex. document.querySelector("li").classList.remove("Cool story, bro.");
+
+
+classList.toggle
+  ex. toggles between a class name of an element.
+  ex. document.querySelector("li").classList.toggle("Complete");
+
+
+
+III. Bonus
+----------
+
+innerHTML //DANGEROUS
+  ex. sets or returns the HTML content(inner HTML) of an element.
+  ex. document.querySelector("h1").innerHTML = "<strong>Bladow!</strong>";
+
+parentElement
+  ex. returns the parent element of the specified element.
+  ex. document.querySelectorAll("li")[1];     // Output = <li>Jello</li>
+      document.querySelectorAll("li")[1].parentElement;     // Output = <ul></ul>
+      document.querySelectorAll("li")[1].parentElement.parentElement;     // Output = <body></body>
+
+children
+  ex. returns a collection of an element's child elements, as an HTMLCollection object.
+  ex. document.querySelectorAll("li")[1].parentElement.children;      // returns all the children of the body (eg. h1, class, id's, etc.)
+
+
+
+NOTE: It is important to CACHE selectors in variables
